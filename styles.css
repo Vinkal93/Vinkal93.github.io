@@ -15,7 +15,7 @@
 
 /* Selection ka background color black aur text color white set karne ke liye */
 ::selection {
-    background-color: black;
+    background-color: #3C3C3C;
     color: white;
   }
   
@@ -25,7 +25,29 @@
     color: white;
   }
   
+/*flot*/
+/* .flot {
+    animation: float 3s ease-in-out infinite;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
 
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+} */
+
+
+/*flot end*/
+
+/*new animation*/
 
 body {
     font-family: Arial, sans-serif;
@@ -89,6 +111,11 @@ nav a {
     color: white;
     border: none;
 }
+
+
+
+
+
 
 .btn-primary:hover {
     background-color: var(--primary-hover);
