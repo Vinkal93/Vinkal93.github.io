@@ -39,7 +39,10 @@ body {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
+    /* box-shadow: 10px 10px 10px #d1d1d1;
+    border-radius: 10px; */
+    
 }
 
 /* Header Styles */
