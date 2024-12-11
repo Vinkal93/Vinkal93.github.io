@@ -461,4 +461,8 @@ footer {
     .footer-content {
         flex-direction: column;
     }
+    #custom-cursor{
+        display: none;
+
+    }
 }
