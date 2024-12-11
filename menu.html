@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .menu-button {
+            position: fixed;
+            right: 1rem;
+            top: 1rem;
+            background-color: #9333ea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .menu-button:hover {
+            background-color: #7e22ce;
+        }
+        .backdrop {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.2);
+            z-index: 40;
+        }
+        .sliding-panel {
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 300px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 50;
+            overflow-y: auto;
+        }
+        .sliding-panel.open {
+            transform: translateX(0);
+        }
+        .close-button {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .menu-content {
+            padding: 1.5rem;
+            padding-top: 4rem;
+        }
+        .menu-item {
+            margin-bottom: 1rem;
+        }
+        .menu-item summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 0.375rem;
+        }
+        .menu-item summary:hover {
+            background-color: #f3f4f6;
+        }
+        .menu-item[open] .chevron {
+            transform: rotate(180deg);
+        }
+        .submenu {
+            margin-top: 0.5rem;
+            margin-left: 1.75rem;
+        }
+        .submenu a {
+            display: block;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+        }
+        .submenu a:hover {
+            background-color: #f3f4f6;
+        }
+        .download-button {
+            width: 100%;
+            background-color: #9333ea;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .download-button:hover {
+            background-color: #7e22ce;
+        }
+        .image-container {
+            margin-top: 2rem;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 0.75rem;
+            background-color: #E0E5EC;
+            position: relative;
+            box-shadow: 
+                5px 5px 5px rgba(0, 0, 0, 0.2),
+                -5px -5px 5px rgba(255, 255, 255, 0.8);
+        }
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button class="menu-button" id="openMenu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <span class="ml-2">Menu</span>
+        </button>
+
+        <div class="backdrop hidden" id="backdrop"></div>
+
+        <div class="sliding-panel" id="slidingPanel">
+            <button class="close-button" id="closeMenu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+            <nav class="menu-content">
+                <ul>
+                    <li class="menu-item">
+                        <details>
+                            <summary>
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                    <span>Home</span>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </summary>
+                            <ul class="submenu">
+                                <li><a href="#">Subpage 1</a></li>
+                                <li><a href="#">Subpage 2</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li class="menu-item">
+                        <details>
+                            <summary>
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                                    <span>About</span>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </summary>
+                            <ul class="submenu">
+                                <li><a href="#">Our Story</a></li>
+                                <li><a href="#">Team</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li class="menu-item">
+                        <details>
+                            <summary>
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                                    <span>Services</span>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </summary>
+                            <ul class="submenu">
+                                <li><a href="#">Service 1</a></li>
+                                <li><a href="#">Service 2</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li class="menu-item">
+                        <details>
+                            <summary>
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                    <span>Contact</span>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </summary>
+                            <ul class="submenu">
+                                <li><a href="#">Email</a></li>
+                                <li><a href="#">Phone</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li class="menu-item">
+                        <button class="download-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Download Now
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="image-container">
+                    <!-- Add your image here -->
+                    <!-- <img src="/your-image.jpg" alt="Description" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.75rem;"> -->
+                </div>
+                <p class="text-center mt-4 text-gray-700">
+                    Your image description or caption here
+                </p>
+
+                <div class="copyright">
+                    © 2024 Your Company. All rights reserved.
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const openMenuButton = document.getElementById('openMenu');
+            const closeMenuButton = document.getElementById('closeMenu');
+            const backdrop = document.getElementById('backdrop');
+            const slidingPanel = document.getElementById('slidingPanel');
+
+            function openMenu() {
+                backdrop.classList.remove('hidden');
+                slidingPanel.classList.add('open');
+            }
+
+            function closeMenu() {
+                backdrop.classList.add('hidden');
+                slidingPanel.classList.remove('open');
+            }
+
+            openMenuButton.addEventListener('click', openMenu);
+            closeMenuButton.addEventListener('click', closeMenu);
+            backdrop.addEventListener('click', closeMenu);
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+        });
+    </script>
+
+
+
+
+
+</body>
+</html>
