@@ -15,12 +15,14 @@
 
 /* Selection ka background color black aur text color white set karne ke liye */
 ::selection {
-    background-color: #3C3C3C;
-    color: white;
+    background-color: #ececec;
+    color: rgb(0, 0, 0);
+    
   }
   ::-moz-selection {
     background-color: black;
     color: white;
+    
   }
   
   @font-face {
@@ -42,12 +44,13 @@
     color: rgba(0, 0, 0, 0.201);
     /* color: transparent;
     -webkit-text-stroke: 0.2px rgb(211, 211, 211); */
-    background: linear-gradient(180deg, #ffd901, #ff0000, #790389 );
+    background: linear-gradient(90deg, #ff5100, #ff0000, #790389 );
     background-size: 80% 100%;
     background-repeat: repeat;
     background-clip: text;
     -webkit-background-clip: text;
     animation: Red-black 20s infinite;
+    font-size: 18px;
     }
 
     @keyframes Red-black{
@@ -99,7 +102,7 @@ body {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 20px;
     /* box-shadow: 10px 10px 10px #d1d1d1;
     border-radius: 10px; */
     
@@ -292,7 +295,7 @@ nav a {
 
 .feature-card {
     background-color: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -451,7 +454,8 @@ footer {
     margin-bottom: 40px;
 }
 #h3{
-    color: #000000;
+    color: var(--primary);
+    font-size: 18px;
 }
 
 .footer-info h3 {

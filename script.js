@@ -15,8 +15,8 @@ document.addEventListener('mouseup', () => {
 });
 
 // Animated Text
-const words = ['Android Developer', 'UI Designer','Web Designer' ];
-const colors = ['#F5CB4C', '#F3CCBA','#F5CB4C'];
+const words = ['Android Developer.', 'UI Designer.','Web Designer.','Excel expert.', ];
+const colors = ['#F5CB4C', '#F3CCBA','#F5CB4C','#8AFFB7'];
 let currentIndex = 0;
 let letterIndex = 0;
 let isDeleting = false;
