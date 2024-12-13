@@ -271,18 +271,20 @@ nav a {
 
 .circle-1 {
     /* top: 0px; */
-    left: 20px;
-    width: 100px;
-    height: 100px;
-    background-color: #F3CCBA;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+    background: #ff9d00;
+filter: blur(51px);
 }
 
 .circle-2 {
-    bottom: 20px;
+    bottom: 200px;
     right: 40px;
     width: 60px;
-    height: 60px;
-    background-color: #3b82f6;
+    height: 00px;
+    background-color: #ffe100;
+    
 }
 
 .circle-3 {
@@ -550,6 +552,15 @@ footer {
     transition: transform 0.2s ease;
 }
 
+.menu{
+    display: none;
+}
+
+
+
+
+
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .hero-content,
@@ -583,4 +594,17 @@ footer {
       .container ul li {
         margin-bottom: 10px; /* Adds space between list items */
       }
-}
+      .header-buttons{
+        display: none;
+      }
+      .menu{
+        display: block;
+        padding: 5px 10px 5px 10px;
+        background-color: rgb(234, 234, 234);
+        border-radius: 4px;
+
+      }
+
+
+
+    }

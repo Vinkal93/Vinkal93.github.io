@@ -91,3 +91,16 @@ const fadeInObserver = new IntersectionObserver((entries) => {
 fadeElems.forEach(elem => {
     fadeInObserver.observe(elem);
 });
+
+
+
+
+
+
+
+//footer star animation
+
+
+       
+
+
