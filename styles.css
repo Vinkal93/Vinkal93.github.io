@@ -90,6 +90,8 @@
 
 /*new animation*/
 
+
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -249,7 +251,7 @@ nav a {
 }
 
 .hero-text h1 {
-    font-size: 3rem;
+    font-size: 50px;
     margin-bottom: 20px;
 }
 
@@ -599,7 +601,7 @@ footer {
     }
 
     .hero-text h1 {
-        font-size: 24px;
+        font-size: 28px;
     }
 
     .footer-content {
