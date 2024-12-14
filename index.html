@@ -15,7 +15,8 @@
 
   gtag('config', 'G-V73M72X50K');
 </script>
-<!-- Google tag end (gtag.js) -->
+<!-- Google tag end (gtag.js) -->]
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -33,10 +34,12 @@
                  <div class="header-buttons">
                     <button class="btn btn-primary">Menu</button>
                 </div> 
-                <div class="menu" onclick="toggleNav()">&#9776;</div>
-
-
-
+                <!-- <div class="menu-icon" onclick="toggleSidebar()">&#9776;</div> -->
+                <!-- <div class="menu-icon" onclick="toggleSidebar()">&#9776;
+                    <i class="menu-icon-content"></i>
+                  </div> -->
+                  
+                  
 
 
             </div>
@@ -195,8 +198,18 @@
     </main>
     <div id="footer"></div>
 
-  <script>
 
+  <script>
+    function toggleSidebar() {
+  document.querySelector('.sidebar').classList.toggle('open');
+}
+
+
+function openMenu() {
+  window.open('menu.html', '_self');
+}
+    
+    
     // Load footer.html into the footer div
     fetch('footer.html')
       .then(response => response.text())
