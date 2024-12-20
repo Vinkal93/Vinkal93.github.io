@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mera Project</title>
+    <link rel="stylesheet" href="./project.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="text-center">
+            <h1 class="text-4xl font-bold mb-4">Project Showcase</h1>
+            <p class="text-xl text-muted-foreground">Project Showcase page</p>
+        </header>
+
+        <div class="tabs">
+            <div class="tabs-list">
+                <button class="tab-trigger active" data-tab="features">Features</button>
+                <button class="tab-trigger" data-tab="libraries">Libraries</button>
+                <button class="tab-trigger" data-tab="architecture">Architecture</button>
+                <button class="tab-trigger" data-tab="team">Team</button>
+            </div>
+            <div class="tab-content active" id="features">
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <i data-lucide="settings"></i>
+                            <h3 class="card-title">Responsive Design</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Our project adapts seamlessly to all screen sizes.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <i data-lucide="rocket"></i>
+                            <h3 class="card-title">Fast Performance</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Optimized for speed and efficiency.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <i data-lucide="code"></i>
+                            <h3 class="card-title">Easy Integration</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Simple to integrate with existing systems.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="libraries">
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">React</h3>
+                            <p class="card-description">Version: 18.2.0</p>
+                        </div>
+                        <div class="card-content">
+                            <p>A JavaScript library for building user interfaces</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Next.js</h3>
+                            <p class="card-description">Version: 13.4.0</p>
+                        </div>
+                        <div class="card-content">
+                            <p>The React Framework for Production</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Tailwind CSS</h3>
+                            <p class="card-description">Version: 3.3.2</p>
+                        </div>
+                        <div class="card-content">
+                            <p>A utility-first CSS framework</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="architecture">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Project Architecture</h3>
+                        <p class="card-description">High-level overview of our project structure</p>
+                    </div>
+                    <div class="card-content">
+                        <pre class="bg-muted">
+project-root/
+├── app/
+│   ├── components/
+│   ├── pages/
+│   ├── styles/
+│   └── utils/
+├── public/
+├── tests/
+├── package.json
+└── README.md
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="team">
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Amit Kumar</h3>
+                            <p class="card-description">Lead Developer</p>
+                        </div>
+                        <div class="card-content">
+                            <p>Experienced in full-stack development with a focus on React and Node.js.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Priya Singh</h3>
+                            <p class="card-description">UI/UX Designer</p>
+                        </div>
+                        <div class="card-content">
+                            <p>Passionate about creating intuitive and beautiful user interfaces.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Rahul Sharma</h3>
+                            <p class="card-description">Backend Developer</p>
+                        </div>
+                        <div class="card-content">
+                            <p>Specializes in building scalable and efficient server-side applications.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="text-center cta-section">
+            <h2 class="text-3xl font-bold mb-4">Ready to get started?</h2>
+            <button class="btn btn-primary btn-lg">
+                Get Started
+                <i data-lucide="rocket"></i>
+            </button>
+        </section>
+    </div>
+    <!-- <div id="footer"></div>
+    <script>
+        // Load footer.html into the footer div
+    fetch('./../../../footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading footer:', error));
+  </script>
+    </script> -->
+
+    <script src="project.js"></script>
+</body>
+</html>
+

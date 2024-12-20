@@ -37,7 +37,6 @@
     src: url(./font/Cheque-Regular.otf) format('truetype');
   } 
 
-
 .Red-black{
     font-size: 3rem;
     font-weight: bold;
@@ -635,10 +634,7 @@ footer {
         cursor: pointer;
 
       }
-
-
-
-
+    
 
       
     
