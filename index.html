@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinkal - Professional Solutions</title>
+    <title>Vinkal Prajapati</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./Pages/css/floating-menu.css">
+    <link rel="icon" href="./assets/Vinkal Prajapati circle.png" type="image/x-icon">
+    
 
-    <!-- Google tag (gtag.js) -->
+     <!-- Google tag (gtag.js)  -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V73M72X50K"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -119,6 +122,8 @@
             </div>
         </section>
         <iframe id="iframe" src="./components/Neo cards/cards.html" style="width: 100%; height: 900px; border: none; " ></iframe>
+        <div id="cards-container"></div>
+         
 
         <section id="about" class="about-section">
             <div class="container">
@@ -197,6 +202,54 @@
             </div>
         </section>
     </main>
+
+
+
+    <!-- Add this HTML where you want the floating menu to appear -->
+<div class="floating-menu">
+    <!-- Tool Items -->
+    <div class="tool-items">
+      <a href="mailto:example@email.com" class="tool-item">
+        <span class="tool-label">Email</span>
+        <button class="tool-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </button>
+      </a>
+      
+      <a href="tel:+1234567890" class="tool-item">
+        <span class="tool-label">Phone</span>
+        <button class="tool-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </button>
+      </a>
+      
+      <a href="https://wa.me/9118245636" class="tool-item">
+        <span class="tool-label">Chat</span>
+        <button class="tool-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </a>
+      
+      <a href="./Pages/html/tools.html" class="tool-item">
+        <span class="tool-label">Tools</span>
+        <button class="tool-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </a>
+    </div>
+  
+    <!-- Main Toggle Button -->
+    <button class="main-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+    </button>
+  </div>
+
+
+
+
+  <!-- floating menu to appear end  -->
+
+
     <div id="footer"></div>
 
 
@@ -212,15 +265,33 @@ function openMenu() {
     
     
     // Load footer.html into the footer div
-    fetch('footer.html')
+    fetch('./components/footer.html')
       .then(response => response.text())
       .then(data => {
         document.getElementById('footer').innerHTML = data;
       })
       .catch(error => console.error('Error loading footer:', error));
-  </script>
+
+
+    //   // Load the cards.html file
+    //   fetch('./components/Neo cards/cards.html')
+    //         .then(response => {
+    //             if (!response.ok) {
+    //                 throw new Error('Network response was not ok');
+    //             }
+    //             return response.text(); // Get the HTML content as text
+    //         })
+    //         .then(data => {
+    //             document.getElementById('cards-container').innerHTML = data; // Insert the HTML content into the container
+    //         })
+    //         .catch(error => {
+    //             console.error('Error loading cards.html:', error);
+    //         });
+
+//   </script>
 
     <script src="script.js"></script>
+    <script src="./Pages/js/floating-menu.js"></script>
 </body>
 </html>
 

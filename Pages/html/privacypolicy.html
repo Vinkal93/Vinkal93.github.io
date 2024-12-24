@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 24px;
+            min-height: 100vh;
+        }
+        .link-container{
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        .container {
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .icon-wrapper {
+            background-color: #eff6ff;
+            border-radius: 9999px;
+            padding: 1rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 1.875rem;
+            font-weight: bold;
+        }
+        .collapsible {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+        .collapsible-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .collapsible-title {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .collapsible-content {
+            display: none;
+            padding-top: 1rem;
+            padding-left: 2.5rem;
+        }
+        .collapsible.active .collapsible-content {
+            display: block;
+        }
+        .collapsible-icon {
+            transition: transform 0.2s;
+        }
+        .collapsible.active .collapsible-icon {
+            transform: rotate(180deg);
+        }
+        h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        p {
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin: 0.25rem 0 0;
+        }
+        ul {
+            padding-left: 1.25rem;
+            margin-top: 0.5rem;
+        }
+        li {
+            margin-bottom: 0.25rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #4b5563;
+            text-decoration: none;
+            margin-top: 2rem;
+        }
+        .back-link:hover {
+            color: #111827;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon-wrapper">
+                <i data-lucide="shield" style="color: #3b82f6; width: 2rem; height: 2rem;"></i>
+            </div>
+            <h1>Privacy Policy</h1>
+        </div>
+
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <div class="collapsible-title">
+                    <i data-lucide="shield" style="color: #3b82f6; width: 1.5rem; height: 1.5rem;"></i>
+                    <div>
+                        <h2>Information We Collect</h2>
+                        <p>Personal and non-personal information we gather</p>
+                    </div>
+                </div>
+                <i data-lucide="chevron-down" class="collapsible-icon" style="width: 1.25rem; height: 1.25rem;"></i>
+            </div>
+            <div class="collapsible-content">
+                <p>1.1 Personal Information:</p>
+                <ul>
+                    <li>Name</li>
+                    <li>Email address</li>
+                    <li>Phone number</li>
+                    <li>Business or project details</li>
+                    <li>Payment information (if applicable)</li>
+                </ul>
+                <p>1.2 Non-Personal Information:</p>
+                <ul>
+                    <li>Browser type and version</li>
+                    <li>Device type, operating system, and screen resolution</li>
+                    <li>IP address and approximate location</li>
+                    <li>Website usage data</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <div class="collapsible-title">
+                    <i data-lucide="flame" style="color: #f97316; width: 1.5rem; height: 1.5rem;"></i>
+                    <div>
+                        <h2>How Your Information Is Used</h2>
+                        <p>Purposes for collecting and processing your data</p>
+                    </div>
+                </div>
+                <i data-lucide="chevron-down" class="collapsible-icon" style="width: 1.25rem; height: 1.25rem;"></i>
+            </div>
+            <div class="collapsible-content">
+                <ul>
+                    <li>Service Delivery</li>
+                    <li>Communication</li>
+                    <li>Analytics</li>
+                    <li>Legal Compliance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <div class="collapsible-title">
+                    <i data-lucide="lock" style="color: #f59e0b; width: 1.5rem; height: 1.5rem;"></i>
+                    <div>
+                        <h2>Security Measures</h2>
+                        <p>How we protect your data</p>
+                    </div>
+                </div>
+                <i data-lucide="chevron-down" class="collapsible-icon" style="width: 1.25rem; height: 1.25rem;"></i>
+            </div>
+            <div class="collapsible-content">
+                <ul>
+                    <li>Encrypted data transmission</li>
+                    <li>Secure servers with firewalls</li>
+                    <li>Regular security updates</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <div class="collapsible-title">
+                    <i data-lucide="settings" style="color: #6b7280; width: 1.5rem; height: 1.5rem;"></i>
+                    <div>
+                        <h2>Your Rights</h2>
+                        <p>Control over your personal information</p>
+                    </div>
+                </div>
+                <i data-lucide="chevron-down" class="collapsible-icon" style="width: 1.25rem; height: 1.25rem;"></i>
+            </div>
+            <div class="collapsible-content">
+                <ul>
+                    <li>Access and Rectify: View and update your personal information</li>
+                    <li>Delete Data: Request data deletion (subject to legal constraints)</li>
+                    <li>Opt-Out: Decline promotional emails</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <div class="collapsible-title">
+                    <h2>About this policy</h2>
+                </div>
+                <i data-lucide="chevron-down" class="collapsible-icon" style="width: 1.25rem; height: 1.25rem;"></i>
+            </div>
+            <div class="collapsible-content">
+                <p>This privacy policy explains how we collect, use, and protect your personal information.</p>
+            </div>
+        </div>
+
+        
+
+        <div class="link-container">
+            <a href="#" class="back-link">
+                <i data-lucide="chevron-left" style="width: 1rem; height: 1rem;"></i>
+                Back
+            </a>
+        
+            <a href="your-help-support-link.html" class="back-link">
+                <i data-lucide="help-circle" style="width: 1rem; height: 1rem;"></i>
+                Help & Support
+            </a>
+        </div>
+        
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Add click event listeners to collapsible elements
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const collapsible = header.closest('.collapsible');
+                collapsible.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8fafc;
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 42rem;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .icon-wrapper {
+            background-color: #eff6ff;
+            border-radius: 9999px;
+            padding: 1rem;
+            display: inline-flex;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #111827;
+        }
+
+        .collapsible {
+            border-radius: 8px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 0.75rem;
+        }
+
+        .collapsible-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .collapsible-content {
+            display: none;
+            padding: 1rem;
+            padding-top: 0;
+        }
+
+        .collapsible.active .collapsible-content {
+            display: block;
+        }
+
+        .collapsible-icon {
+            transition: transform 0.2s;
+        }
+
+        .collapsible.active .collapsible-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-section {
+            margin-top: 2rem;
+        }
+
+        .faq-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+
+        .faq-item {
+            padding: 1rem;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            color: #374151;
+        }
+
+        .faq-item:hover {
+            background-color: #f9fafb;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6b7280;
+            text-decoration: none;
+            margin-top: 2rem;
+            font-size: 0.875rem;
+        }
+
+        .back-link:hover {
+            color: #111827;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon-wrapper">
+                <i data-lucide="message-square" style="color: #3b82f6; width: 2rem; height: 2rem;"></i>
+            </div>
+            <h1>Help & Support</h1>
+        </div>
+
+        <div class="collapsible">
+            <div class="collapsible-header">
+                How it works
+                <i data-lucide="chevron-down" class="collapsible-icon" style="width: 1.25rem; height: 1.25rem;"></i>
+            </div>
+            <div class="collapsible-content">
+                <p>Learn how our platform works and how to get started.</p>
+            </div>
+        </div>
+
+        <div class="collapsible">
+            <div class="collapsible-header">
+                Report a Bug
+                <i data-lucide="chevron-down" class="collapsible-icon" style="width: 1.25rem; height: 1.25rem;"></i>
+            </div>
+            <div class="collapsible-content">
+                <p>Found an issue? Let us know and we'll fix it.</p>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2 class="faq-title">FAQ</h2>
+            <div class="faq-item">
+                I have problem with the map or my location
+            </div>
+            <div class="faq-item">
+                I can't find some places
+            </div>
+            <div class="faq-item">
+                There is nothing in my area (my city)
+            </div>
+        </div>
+
+        <a href="#" class="back-link">
+            <i data-lucide="chevron-left" style="width: 1rem; height: 1rem;"></i>
+            Back
+        </a>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Add click event listeners to collapsible elements
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const collapsible = header.closest('.collapsible');
+                collapsible.classList.toggle('active');
+            });
+        });
+
+        // Add click event listeners to FAQ items
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                // You can add navigation or expand functionality here
+                console.log('FAQ item clicked:', item.textContent.trim());
+            });
+        });
+    </script>
+</body>
+</html>

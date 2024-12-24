@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Recommendations</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .header h1 {
+            font-size: 2rem;
+            color: #111827;
+            margin: 0;
+        }
+        .header p {
+            color: #6b7280;
+            margin: 0.5rem 0 0 0;
+        }
+        .job-count {
+            background-color: #e5e7eb;
+            color: #374151;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .job-card {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: box-shadow 0.3s ease;
+        }
+        .job-card:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        .job-company {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .job-logo {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .job-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+            margin: 0;
+        }
+        .job-company-name {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin: 0.25rem 0 0 0;
+        }
+        .job-date {
+            font-size: 0.75rem;
+            color: #6b7280;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .job-tag {
+            background-color: #f3f4f6;
+            color: #374151;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+        }
+        .job-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .job-salary {
+            font-size: 0.875rem;
+        }
+        .job-salary-amount {
+            font-weight: 600;
+            color: #111827;
+        }
+        .job-location {
+            color: #6b7280;
+        }
+        .job-details {
+            background-color: #111827;
+            color: #ffffff;
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .job-details:hover {
+            background-color: #374151;
+        }
+        .category-header {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        .category-header h2 {
+            font-size: 1.5rem;
+            color: #111827;
+            margin: 0;
+        }
+        .category-header p {
+            color: #6b7280;
+            margin: 0.5rem 0 0 0;
+        }
+        @media (max-width: 768px) {
+            .job-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div>
+                <h1>Recommended Jobs</h1>
+                <p>Based on your profile and search history</p>
+            </div>
+            <span class="job-count" id="jobCount"></span>
+        </header>
+
+        <section class="category-header">
+            <h2>Featured Design Positions</h2>
+            <p>Top opportunities in UI/UX and Graphic Design</p>
+        </section>
+
+        <div class="job-grid" id="designJobs"></div>
+
+        <section class="category-header">
+            <h2>Tech Innovators</h2>
+            <p>Exciting roles at leading tech companies</p>
+        </section>
+
+        <div class="job-grid" id="techJobs"></div>
+    </div>
+
+    <script>
+        // JavaScript code
+        const jobs = [
+            {
+                company: "Amazon",
+                position: "Senior UI/UX Designer",
+                logo: "https://logo.clearbit.com/amazon.com",
+                date: "20 May, 2023",
+                salary: "$250/hr",
+                location: "California, CA",
+                tags: ["Full time", "Remote work", "Senior level"],
+                category: "design",
+                detailLink: "https://example.com/job/amazon-uiux"
+            },
+            {
+                company: "Google",
+                position: "Senior UI/UX Designer",
+                logo: "https://logo.clearbit.com/google.com",
+                date: "4 Feb, 2023",
+                salary: "$150/hr",
+                location: "New York, NY",
+                tags: ["Full time", "Flexible work", "Senior level"],
+                category: "design",
+                detailLink: "https://example.com/job/google-uiux"
+            },
+            {
+                company: "Dribble",
+                position: "Senior Motion Designer",
+                logo: "https://logo.clearbit.com/dribbble.com",
+                date: "29 Jan, 2023",
+                salary: "$240/hr",
+                location: "San Francisco, CA",
+                tags: ["Part time", "Remote work", "Full Day"],
+                category: "design",
+                detailLink: "https://example.com/job/dribble-motion"
+            },
+            {
+                company: "Twitter",
+                position: "UX Designer",
+                logo: "https://logo.clearbit.com/twitter.com",
+                date: "11 Apr, 2023",
+                salary: "$125/hr",
+                location: "California, CA",
+                tags: ["Full time", "Flexible work", "Project work"],
+                category: "tech",
+                detailLink: "https://example.com/job/twitter-ux"
+            },
+            {
+                company: "Airbnb",
+                position: "Graphic Designer",
+                logo: "https://logo.clearbit.com/airbnb.com",
+                date: "2 Apr, 2023",
+                salary: "$300/hr",
+                location: "New York, NY",
+                tags: ["Part time", "Senior level"],
+                category: "design",
+                detailLink: "https://example.com/job/airbnb-graphic"
+            },
+            {
+                company: "Apple",
+                position: "Software Engineer",
+                logo: "https://logo.clearbit.com/apple.com",
+                date: "15 Jan, 2023",
+                salary: "$140/hr",
+                location: "San Francisco, CA",
+                tags: ["Full time", "On-site"],
+                category: "tech",
+                detailLink: "https://example.com/job/apple-engineer"
+            }
+        ];
+
+        function createJobCard(job) {
+            return `
+                <div class="job-card">
+                    <div class="job-header">
+                        <div class="job-company">
+                            <img src="${job.logo}" alt="${job.company} logo" class="job-logo">
+                            <div>
+                                <h3 class="job-title">${job.position}</h3>
+                                <p class="job-company-name">${job.company}</p>
+                            </div>
+                        </div>
+                        <button class="job-date">${job.date}</button>
+                    </div>
+                    <div class="job-tags">
+                        ${job.tags.map(tag => `<span class="job-tag">${tag}</span>`).join('')}
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-salary">
+                            <span class="job-salary-amount">${job.salary}</span>
+                            <span class="job-location">${job.location}</span>
+                        </div>
+                        <a href="${job.detailLink}" class="job-details">Details</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderJobs() {
+            const designJobs = document.getElementById('designJobs');
+            const techJobs = document.getElementById('techJobs');
+            const jobCount = document.getElementById('jobCount');
+
+            jobs.forEach(job => {
+                if (job.category === 'design') {
+                    designJobs.innerHTML += createJobCard(job);
+                } else if (job.category === 'tech') {
+                    techJobs.innerHTML += createJobCard(job);
+                }
+            });
+
+            jobCount.textContent = jobs.length;
+        }
+
+        renderJobs();
+    </script>
+</body>
+</html>
