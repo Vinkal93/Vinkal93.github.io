@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Ads Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        /* Header styles */
+        header {
+            background-color: #1a73e8;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+        .btn-primary {
+            border: 1px solid #fff;
+            color: white;
+        }
+        .btn-secondary {
+            background-color: white;
+            color: #1a73e8;
+        }
+        .btn-primary:hover {
+            background-color: #ffffff;
+            color: #1a73e8;
+        }
+        .btn-secondary:hover {
+            background-color: #f1f3f4;
+            
+        }
+       
+
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #1a73e8;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0px;
+        }
+
+        /* Card Styles */
+        .service-card {
+            perspective: 2000px;
+            height: 300px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .service-card.animate {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .service-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-front {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-back {
+            background: #1a73e8;
+            color: white;
+            transform: rotateY(180deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #f1f6ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #1a73e8;
+        }
+
+        .card-front h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .card-front p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .card-back h3 {
+            margin-bottom: 20px;
+            font-size: 1.25rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li i {
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+
+        .learn-more-btn {
+            background: white;
+            color: #1a73e8;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .learn-more-btn:hover {
+            background: #f1f6ff;
+            transform: translateY(-2px);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .faq-item.animate {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .faq-question {
+            background: white;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #f1f6ff;
+        }
+
+        .faq-icon {
+            width: 40px;
+            height: 40px;
+            background: #f1f6ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a73e8;
+        }
+
+        .faq-question h3 {
+            flex: 1;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .faq-question i.fa-chevron-down {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i.fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            background: white;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 300px;
+        }
+
+        /* Plan */
+
+        .plan {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            animation: fadeIn 1s ease-out;
+            transition: transform 0.3s;
+        }
+        .plan:hover {
+            transform: translateY(-10px);
+        }
+        .plan h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .plan-price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .plan-features {
+            list-style-type: none;
+            margin-bottom: 30px;
+        }
+        .plan-features li {
+            margin-bottom: 10px;
+        }
+        .plan-features li::before {
+            content: "✓";
+            color: #1a73e8;
+            margin-right: 10px;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Pricing section styles */
+        .pricing {
+            padding: 60px 0;
+        }
+        .pricing h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+        .pricing-plans {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+        .btn-primary {
+            background-color: #1a73e8;
+            color: white;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                height: 350px;
+            }
+            header h1 {
+                font-size: 27px;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .benefit-item,
+            .service-item,
+            .plan {
+                min-width: 100%;
+            }
+            .carousel-btn {
+                display: none;
+            }
+        
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Achieve Your Goals with <br>Effective Google Ads Campaigns!</h1>
+            <p>Boost your business with tailored Google Ads strategies designed to deliver measurable results.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Get Started Today</a>
+                <a href="#" class="btn btn-secondary">Request a Free Consultation</a>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="services">
+        <div class="container">
+            
+
+            <div class="section-header">
+                <h2>Our Expertise in Google Ads</h2>
+                <p>Leverage our comprehensive Google Ads expertise to drive results for your business</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="service-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h3>Campaign Setup & Management</h3>
+                            <p>Expert setup and management of your Google Ads campaigns for optimal performance and ROI.</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Key Features</h3>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i>Campaign structure optimization</li>
+                                <li><i class="fas fa-check"></i>Budget management</li>
+                                <li><i class="fas fa-check"></i>24/7 monitoring</li>
+                            </ul>
+                            <button class="learn-more-btn">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="service-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3>Keyword Research & Optimization</h3>
+                            <p>In-depth keyword research and continuous optimization to target your ideal audience.</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Key Features</h3>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i>Competitor analysis</li>
+                                <li><i class="fas fa-check"></i>Long-tail keywords</li>
+                                <li><i class="fas fa-check"></i>Negative keyword management</li>
+                            </ul>
+                            <button class="learn-more-btn">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="service-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <h3>Ad Copywriting</h3>
+                            <p>Compelling ad copy that drives high click-through rates and conversions.</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Key Features</h3>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i>A/B testing</li>
+                                <li><i class="fas fa-check"></i>Call-to-action optimization</li>
+                                <li><i class="fas fa-check"></i>Ad extension setup</li>
+                            </ul>
+                            <button class="learn-more-btn">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="service-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <h3>Ad Copywriting</h3>
+                            <p>Compelling ad copy that drives high click-through rates and conversions.</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Key Features</h3>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i>A/B testing</li>
+                                <li><i class="fas fa-check"></i>Call-to-action optimization</li>
+                                <li><i class="fas fa-check"></i>Ad extension setup</li>
+                            </ul>
+                            <button class="learn-more-btn">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="service-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h3>Audience Targeting</h3>
+                            <p>Precise audience targeting and retargeting strategies to reach potential customers.</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Key Features</h3>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i>Demographics targeting</li>
+                                <li><i class="fas fa-check"></i>Interest-based audiences</li>
+                                <li><i class="fas fa-check"></i>Custom intent audiences</li>
+                            </ul>
+                            <button class="learn-more-btn">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="service-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <h3>Performance Analytics</h3>
+                            <p>Comprehensive tracking and reporting of your campaign performance metrics.</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Key Features</h3>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i>Real-time monitoring</li>
+                                <li><i class="fas fa-check"></i>Custom reporting</li>
+                                <li><i class="fas fa-check"></i>ROI analysis</li>
+                            </ul>
+                            <button class="learn-more-btn">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section class="pricing">
+        <div class="container">
+            <h2>Transparent Pricing Plans to Suit Every Need</h2>
+            <div class="pricing-plans">
+                <div class="plan">
+                    <h3>Starter Plan</h3>
+                    <div class="plan-price">₹10,000<span>/month</span></div>
+                    <p>For small businesses</p>
+                    <ul class="plan-features">
+                        <li>Basic campaign setup</li>
+                        <li>Monthly performance report</li>
+                        <li>Email support</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Choose Plan</a>
+                </div>
+                <div class="plan">
+                    <h3>Growth Plan</h3>
+                    <div class="plan-price">₹25,000<span>/month</span></div>
+                    <p>For medium businesses</p>
+                    <ul class="plan-features">
+                        <li>Advanced campaign setup</li>
+                        <li>Weekly performance reports</li>
+                        <li>Phone and email support</li>
+                        <li>Ad copy optimization</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Choose Plan</a>
+                </div>
+                <div class="plan">
+                    <h3>Custom Plan</h3>
+                    <div class="plan-price">Custom</div>
+                    <p>Tailored to large enterprises</p>
+                    <ul class="plan-features">
+                        <li>Fully customized campaigns</li>
+                        <li>Daily performance tracking</li>
+                        <li>24/7 priority support</li>
+                        <li>Advanced analytics</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Get answers to common questions about our Google Ads services</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>What is Google Ads, and how does it work?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Google Ads is an online advertising platform developed by Google. It allows businesses to display brief advertisements, service offerings, product listings, or videos to web users. It works on a pay-per-click model, meaning you only pay when someone clicks on your ad.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h4>How soon can I see results from Google Ads?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The timeline for seeing results can vary depending on factors such as your industry, competition, and budget. However, many businesses start seeing initial results within a few days to a couple of weeks after launching their campaigns.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h4>What is the minimum budget required for Google Ads?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>There's no set minimum budget for Google Ads. You can set your own daily budget based on your goals and resources. However, to see meaningful results, we generally recommend starting with a budget of at least ₹500-1000 per day.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h4>How do you measure the success of Google Ads campaigns?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We measure success through various metrics including Click-Through Rate (CTR), Conversion Rate, Cost Per Click (CPC), Return on Ad Spend (ROAS), and Quality Score. We provide detailed reports and analytics to track these metrics and optimize campaign performance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer"></div>
+
+    <script>
+        // Load footer.html into the footer div
+    fetch('./../../components/footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading footer:', error));
+
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe all service cards and FAQ items
+        document.querySelectorAll('.service-card, .faq-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
