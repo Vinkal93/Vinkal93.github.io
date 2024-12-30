@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ Help Center</title>
+    <title>Vinkal Prajapati Help Center</title>
     <style>
         * {
             margin: 0;
@@ -20,7 +20,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
             display: grid;
             grid-template-columns: 1fr 400px;
             gap: 2rem;
@@ -38,13 +38,16 @@
 
         .hero h1 {
             color: white;
-            font-size: 4rem;
+            font-size: clamp(2rem, 5vw, 4rem);
             margin-bottom: 2rem;
+            line-height: 1.2;
         }
 
         .search-container {
             position: relative;
             margin-bottom: 2rem;
+            width: 100%;
+            max-width: 600px;
         }
 
         .search-input {
@@ -83,12 +86,16 @@
 
         .popular-searches {
             color: white;
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
         .popular-searches a {
             color: white;
             text-decoration: underline;
             margin-right: 1rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
             opacity: 0.8;
             transition: opacity 0.3s;
         }
@@ -101,6 +108,9 @@
             background: white;
             border-radius: 1rem;
             padding: 2rem;
+            height: fit-content;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .faq-container h2 {
@@ -122,16 +132,36 @@
         .faq-item h3 {
             margin-bottom: 0.5rem;
             font-size: 1.1rem;
+            padding-right: 2rem;
+            position: relative;
+        }
+
+        .faq-item h3::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active h3::after {
+            transform: translateY(-50%) rotate(45deg);
         }
 
         .faq-item p {
             color: #666;
             display: none;
             animation: slideDown 0.3s ease-out;
+            line-height: 1.6;
         }
 
         .faq-item.active p {
             display: block;
+        }
+        .hero{
+            padding: 20% 20px 20px 20px;
         }
 
         @keyframes slideDown {
@@ -146,8 +176,39 @@
         }
 
         @media (max-width: 768px) {
+            .hero{
+            padding: 20px;
+        }
             .container {
                 grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .welcome-badge {
+                font-size: 0.75rem;
+            }
+
+            .search-container {
+                max-width: 100%;
+            }
+
+            .search-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .popular-searches {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .popular-searches a {
+                margin: 0;
+            }
+
+            .faq-container {
+                padding: 1rem;
             }
         }
     </style>
@@ -155,7 +216,7 @@
 <body>
     <div class="container">
         <div class="hero">
-            <div class="welcome-badge">WELCOME TO JASPER'S HELP CENTER</div>
+            <div class="welcome-badge">WELCOME TO VINKAL PRAJAPATI'S HELP CENTER</div>
             <h1>How can we help?</h1>
             <div class="search-container">
                 <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -166,13 +227,12 @@
             </div>
             <div class="popular-searches">
                 Popular searches: 
-                <a href="#">billing</a>
-                <a href="#">brand voice</a>
-                <a href="#">knowledge base</a>
-                <a href="#">commands</a>
-                <a href="#">API</a>
-                <a href="#">chat</a>
-                <a href="#">SEO</a>
+                <a href="#">video editing</a>
+                <a href="#">google ads</a>
+                <a href="#">graphic design</a>
+                <a href="#">seo</a>
+                <a href="#">pricing</a>
+                <a href="#">portfolio</a>
             </div>
         </div>
 
@@ -188,24 +248,181 @@
         // FAQ Data
         const faqData = [
             {
-                title: "Cancel your Account",
-                content: "We're sad to see you go! You can cancel your account by going to settings and selecting 'Cancel Subscription'.",
-                views: 1500
+                title: "What video editing services do you offer?",
+                content: "We offer comprehensive video editing services including cuts, transitions, effects, color grading, sound mixing, motion graphics, and more. We can handle any type of video from social media content to corporate presentations.",
+                views: 2500,
+                category: "video"
             },
             {
-                title: "Troubleshooting a Bug",
-                content: "Are you noticing something weird happening in your account? Here's how to troubleshoot common issues...",
-                views: 1200
+                title: "How do you optimize Google Ads campaigns?",
+                content: "We optimize Google Ads campaigns through careful keyword research, audience targeting, A/B testing, and regular performance monitoring. We focus on maximizing ROI while minimizing cost per acquisition.",
+                views: 2200,
+                category: "ads"
             },
             {
-                title: "500+ Helpful Jasper Prompts",
-                content: "Our vast prompt database features 500+ ideas to help you create better content faster.",
-                views: 2000
+                title: "What's included in your SEO services?",
+                content: "Our SEO services include keyword research, on-page optimization, technical SEO, content strategy, link building, and regular performance reporting. We focus on sustainable, white-hat techniques to improve your search rankings.",
+                views: 2000,
+                category: "seo"
             },
             {
-                title: "How to Install the Jasper Extension",
-                content: "Installing the Jasper extension is easy! Simply visit the Chrome Web Store and click 'Add to Chrome'.",
-                views: 800
+                title: "What types of graphic design work do you handle?",
+                content: "We create logos, branding materials, social media graphics, website designs, print materials, and more. Each design is custom-made to match your brand identity and communication goals.",
+                views: 1800,
+                category: "design"
+            },
+            {
+                title: "What are your video editing turnaround times?",
+                content: "Turnaround times vary based on project complexity. Simple edits typically take 2-3 business days, while complex projects might take 5-7 business days. Rush services are available for urgent needs.",
+                views: 1500,
+                category: "video"
+            },
+            {
+                title: "How do you measure SEO success?",
+                content: "We track multiple metrics including organic traffic, keyword rankings, conversion rates, bounce rates, and ROI. Monthly reports detail all improvements and ongoing optimization strategies.",
+                views: 1400,
+                category: "seo"
+            },
+            {
+                title: "What's your graphic design process?",
+                content: "Our design process includes initial consultation, concept development, preliminary designs, revision rounds, and final delivery. We ensure you're involved and satisfied at every step.",
+                views: 1300,
+                category: "design"
+            },
+            {
+                title: "How do you structure Google Ads budgets?",
+                content: "We develop custom budget strategies based on your goals, market competition, and target audience. We start with a test budget to gather data, then optimize for the best performing campaigns.",
+                views: 1200,
+                category: "ads"
+            },
+            {
+                title: "Do you offer monthly service packages?",
+                content: "Yes, we offer monthly packages for all our services. These packages can be customized to include any combination of video editing, SEO, Google Ads, and graphic design services.",
+                views: 1100,
+                category: "general"
+            },
+            {
+                title: "Can you help with YouTube SEO?",
+                content: "Yes, we optimize YouTube videos through keyword research, title optimization, description writing, thumbnail design, and proper tag usage to improve visibility and engagement.",
+                views: 1000,
+                category: "seo"
+            },
+            // New Video Editing Questions
+            {
+                title: "What video formats do you work with?",
+                content: "We work with all major video formats including MP4, MOV, AVI, WMV, and more. We can handle 4K, HD, and standard definition footage from any camera or device.",
+                views: 950,
+                category: "video"
+            },
+            {
+                title: "Do you provide video color grading services?",
+                content: "Yes, we offer professional color grading to enhance your video's visual appeal. This includes color correction, mood setting, and matching colors across different shots for consistency.",
+                views: 920,
+                category: "video"
+            },
+            {
+                title: "Can you add subtitles to videos?",
+                content: "Yes, we can add professional subtitles in multiple languages, closed captions, and burned-in subtitles. We ensure proper timing and formatting for maximum accessibility.",
+                views: 890,
+                category: "video"
+            },
+
+            // New Google Ads Questions
+            {
+                title: "How long does it take to see results from Google Ads?",
+                content: "Initial results can be seen within the first week, but optimal performance usually takes 2-3 months as we gather data and optimize campaigns based on performance metrics.",
+                views: 880,
+                category: "ads"
+            },
+            {
+                title: "Do you handle Google Display Ads?",
+                content: "Yes, we create and manage both Search and Display ad campaigns. This includes banner design, audience targeting, and performance optimization for maximum visibility.",
+                views: 850,
+                category: "ads"
+            },
+            {
+                title: "What's your approach to keyword research?",
+                content: "We use advanced tools and techniques to identify high-value keywords with good search volume and reasonable competition. We also focus on long-tail keywords for better ROI.",
+                views: 830,
+                category: "ads"
+            },
+
+            // New Graphic Design Questions
+            {
+                title: "What file formats do you provide for logos?",
+                content: "We provide logos in multiple formats including AI, EPS, SVG (vector formats), as well as PNG and JPG (raster formats). This ensures you can use your logo anywhere.",
+                views: 810,
+                category: "design"
+            },
+            {
+                title: "Do you design social media templates?",
+                content: "Yes, we create custom social media templates for all platforms (Instagram, Facebook, Twitter, LinkedIn) that maintain your brand identity while being easy to update.",
+                views: 790,
+                category: "design"
+            },
+            {
+                title: "Can you help with brand guidelines?",
+                content: "Yes, we create comprehensive brand guidelines including logo usage, color palettes, typography, image style, and application examples to maintain brand consistency.",
+                views: 770,
+                category: "design"
+            },
+
+            // New SEO Questions
+            {
+                title: "How long does SEO take to show results?",
+                content: "SEO is a long-term strategy. While initial improvements can be seen in 3-6 months, significant results typically take 6-12 months depending on competition and current site status.",
+                views: 750,
+                category: "seo"
+            },
+            {
+                title: "Do you handle local SEO?",
+                content: "Yes, we optimize for local search through Google My Business optimization, local keyword targeting, citation building, and local content strategy.",
+                views: 730,
+                category: "seo"
+            },
+            {
+                title: "What's included in technical SEO?",
+                content: "Technical SEO includes site speed optimization, mobile responsiveness, XML sitemaps, robots.txt configuration, schema markup, and fixing crawl errors.",
+                views: 710,
+                category: "seo"
+            },
+
+            // General Service Questions
+            {
+                title: "What are your payment terms?",
+                content: "We offer flexible payment options including monthly retainers, project-based payments, and milestone-based payments. We accept all major credit cards and bank transfers.",
+                views: 690,
+                category: "general"
+            },
+            {
+                title: "Do you offer rush services?",
+                content: "Yes, we offer rush services for urgent projects across all our service areas. Rush fees vary depending on the project scope and timeline requirements.",
+                views: 670,
+                category: "general"
+            },
+            {
+                title: "Can you handle multiple services for one project?",
+                content: "Yes, we often combine services (e.g., video editing with SEO optimization, or graphic design with Google Ads) for comprehensive marketing solutions.",
+                views: 650,
+                category: "general"
+            },
+            {
+                title: "What's your revision policy?",
+                content: "Our standard packages include 2-3 rounds of revisions. Additional revisions can be arranged at a reasonable rate. We work until you're completely satisfied.",
+                views: 630,
+                category: "general"
+            },
+            {
+                title: "Do you sign NDAs?",
+                content: "Yes, we're happy to sign Non-Disclosure Agreements to protect your confidential information and project details.",
+                views: 610,
+                category: "general"
+            },
+            {
+                title: "What's your typical response time?",
+                content: "We respond to all inquiries within 24 hours during business days. For urgent matters, we have priority support channels available.",
+                views: 590,
+                category: "general"
             }
         ];
 
@@ -214,7 +431,7 @@
 
         // Create FAQ items
         const faqList = document.getElementById('faqList');
-        
+
         function createFaqItems(items) {
             faqList.innerHTML = '';
             items.forEach(item => {
@@ -238,12 +455,13 @@
 
         // Search functionality
         const searchInput = document.getElementById('searchInput');
-        
+
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
-            const filteredFaqs = faqData.filter(item => 
-                item.title.toLowerCase().includes(searchTerm) || 
-                item.content.toLowerCase().includes(searchTerm)
+            const filteredFaqs = faqData.filter(item =>
+                item.title.toLowerCase().includes(searchTerm) ||
+                item.content.toLowerCase().includes(searchTerm) ||
+                item.category.toLowerCase().includes(searchTerm)
             );
             createFaqItems(filteredFaqs);
         });
@@ -254,9 +472,10 @@
                 e.preventDefault();
                 searchInput.value = tag.textContent;
                 const searchTerm = tag.textContent.toLowerCase();
-                const filteredFaqs = faqData.filter(item => 
-                    item.title.toLowerCase().includes(searchTerm) || 
-                    item.content.toLowerCase().includes(searchTerm)
+                const filteredFaqs = faqData.filter(item =>
+                    item.title.toLowerCase().includes(searchTerm) ||
+                    item.content.toLowerCase().includes(searchTerm) ||
+                    item.category.toLowerCase().includes(searchTerm)
                 );
                 createFaqItems(filteredFaqs);
             });
