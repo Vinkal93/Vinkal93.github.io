@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Help Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #9747FF 0%, #7B3FE4 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+        }
+
+        .welcome-badge {
+            display: inline-block;
+            background: #2D2D2D;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: none;
+            border-radius: 100px;
+            font-size: 1rem;
+            background: white;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .search-button {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #2D2D2D;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-button:hover {
+            background: #404040;
+        }
+
+        .popular-searches {
+            color: white;
+        }
+
+        .popular-searches a {
+            color: white;
+            text-decoration: underline;
+            margin-right: 1rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .popular-searches a:hover {
+            opacity: 1;
+        }
+
+        .faq-container {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+        }
+
+        .faq-container h2 {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .faq-item:hover {
+            transform: translateX(10px);
+        }
+
+        .faq-item h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .faq-item p {
+            color: #666;
+            display: none;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .faq-item.active p {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="welcome-badge">WELCOME TO JASPER'S HELP CENTER</div>
+            <h1>How can we help?</h1>
+            <div class="search-container">
+                <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#666666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <input type="text" class="search-input" placeholder="Search..." id="searchInput">
+                <button class="search-button">Search</button>
+            </div>
+            <div class="popular-searches">
+                Popular searches: 
+                <a href="#">billing</a>
+                <a href="#">brand voice</a>
+                <a href="#">knowledge base</a>
+                <a href="#">commands</a>
+                <a href="#">API</a>
+                <a href="#">chat</a>
+                <a href="#">SEO</a>
+            </div>
+        </div>
+
+        <div class="faq-container">
+            <h2>FAQ</h2>
+            <div id="faqList">
+                <!-- FAQ items will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // FAQ Data
+        const faqData = [
+            {
+                title: "Cancel your Account",
+                content: "We're sad to see you go! You can cancel your account by going to settings and selecting 'Cancel Subscription'.",
+                views: 1500
+            },
+            {
+                title: "Troubleshooting a Bug",
+                content: "Are you noticing something weird happening in your account? Here's how to troubleshoot common issues...",
+                views: 1200
+            },
+            {
+                title: "500+ Helpful Jasper Prompts",
+                content: "Our vast prompt database features 500+ ideas to help you create better content faster.",
+                views: 2000
+            },
+            {
+                title: "How to Install the Jasper Extension",
+                content: "Installing the Jasper extension is easy! Simply visit the Chrome Web Store and click 'Add to Chrome'.",
+                views: 800
+            }
+        ];
+
+        // Sort FAQ items by views
+        faqData.sort((a, b) => b.views - a.views);
+
+        // Create FAQ items
+        const faqList = document.getElementById('faqList');
+        
+        function createFaqItems(items) {
+            faqList.innerHTML = '';
+            items.forEach(item => {
+                const faqItem = document.createElement('div');
+                faqItem.className = 'faq-item';
+                faqItem.innerHTML = `
+                    <h3>${item.title}</h3>
+                    <p>${item.content}</p>
+                `;
+                faqList.appendChild(faqItem);
+
+                // Add click event for expansion
+                faqItem.addEventListener('click', () => {
+                    faqItem.classList.toggle('active');
+                });
+            });
+        }
+
+        // Initial creation of FAQ items
+        createFaqItems(faqData);
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredFaqs = faqData.filter(item => 
+                item.title.toLowerCase().includes(searchTerm) || 
+                item.content.toLowerCase().includes(searchTerm)
+            );
+            createFaqItems(filteredFaqs);
+        });
+
+        // Popular search tags functionality
+        document.querySelectorAll('.popular-searches a').forEach(tag => {
+            tag.addEventListener('click', (e) => {
+                e.preventDefault();
+                searchInput.value = tag.textContent;
+                const searchTerm = tag.textContent.toLowerCase();
+                const filteredFaqs = faqData.filter(item => 
+                    item.title.toLowerCase().includes(searchTerm) || 
+                    item.content.toLowerCase().includes(searchTerm)
+                );
+                createFaqItems(filteredFaqs);
+            });
+        });
+    </script>
+</body>
+</html>
