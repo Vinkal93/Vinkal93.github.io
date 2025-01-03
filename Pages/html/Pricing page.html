@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Pricing Plans - Enterprise Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.core.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.theme.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glide__bullet {
+            width: 10px;
+            height: 10px;
+            background-color: #CBD5E0;
+            border-radius: 50%;
+            margin: 0 4px;
+        }
+        .glide__bullet--active {
+            background-color: #000000;
+        }
+        .plan-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .feature-row:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        .toggle-switch {
+            width: 60px;
+            height: 34px;
+            position: relative;
+            display: inline-block;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .toggle-slider {
+            background-color: #000000;
+        }
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+        .FAQbAck{
+            background-color: #f8fafc;  
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .most-popular-label {
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+    padding: 2px 22px; /* Adjust padding as needed */
+}
+.effect{
+   
+ 
+    color: rgba(255, 255, 255, 0.1);
+    /* color: transparent;
+    -webkit-text-stroke: 0.2px rgb(211, 211, 211); */
+    background: linear-gradient(90deg, #000000, #fff, #000);
+    /* background: linear-gradient(90deg, #ff5100, #ff0000, #790389 ); */
+    background-size: 80% 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: effect 10s infinite;
+    
+}
+    </style>
+</head>
+<body class="bg-gray-50">
+    <main class="pt-8">
+        <section class="bg-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl mb-4">Choose the <span class="effect"> perfect</span> plan for your business</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Get everything you need to manage and grow your business with our flexible pricing plans. Start free, upgrade when you need.</p>
+                <div class="mt-8 flex justify-center items-center gap-4">
+                    <span class="text-gray-600">Bill Monthly</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="billingToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="text-gray-600">Bill Annually <span class="text-custom font-medium">Save 20%</span></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="plan-card bg-white rounded-lg shadow-sm p-8 border border-gray-200 relative">
+                        <h3 class="text-xl font-semibold mb-4">Starter</h3>
+                        <div class="flex items-baseline mb-8">
+                            <span class="text-4xl font-bold price" data-monthly="29" data-annual="23">$29</span>
+                            <span class="text-gray-600 ml-2">/month</span>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-custom mr-3"></i>Up to 5 team members</li>
+                            <li class="flex items-center"><i class="fas fa-check text-custom mr-3"></i>Basic analytics</li>
+                            <li class="flex items-center"><i class="fas fa-check text-custom mr-3"></i>5GB storage</li>
+                            <li class="flex items-center"><i class="fas fa-check text-custom mr-3"></i>Email support</li>
+                        </ul>
+                        <button class="rounded-md w-full bg-white text-custom border-2 border-custom py-2 font-medium hover:bg-gray-50 transition-colors">Get Started</button>
+                    </div>
+
+                    <div class="plan-card bg-white rounded-lg shadow-lg p-8 border-2 border-custom relative transform scale-105">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                            <span class="most-popular-label">Most Popular</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Professional</h3>
+                        <div class="flex items-baseline mb-8">
+                            <span class="text-4xl font-bold price" data-monthly="79" data-annual="63">$79</span>
+                            <span class="text-gray-600 ml-2">/month</span>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-custom mr-3"></i>Up to 20 team members</li>
+                            <li class="flex items-center"><i class="fas fa-check text-custom mr-3"></i>Advanced analytics</li>
+                            <li class="flex items-center"><i class="fas fa-check text-custom mr-3"></i>20GB storage</li>
+                            <li class="flex items-center"><i class="fas fa-check text-custom mr-3"></i>Priority support</li>
+                            <li class="flex items-center"><i class="fas fa-check text-custom mr-3"></i>Custom integrations</li>
+                        </ul>
+                        <button class="rounded-md w-full bg-custom text-black border py-2 font-medium hover:bg-indigo-600 transition-colors">Get Started</button>
+                    </div>
+
+                    <div class="plan-card bg-white rounded-lg shadow-sm p-8 border border-gray-200 relative">
+                        <h3 class="text-xl font-semibold mb-4">Enterprise</h3>
+                        <div class="flex items-baseline mb-8">
+                            <span class="text-4xl font-bold price" data-monthly="199" data-annual="159">$199</span>
+                            <span class="text-gray-600 ml-2">/month</span>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-custom mr-3"></i>Unlimited team members</li>
+                            <li class="flex items-center"><i class="fas fa-check text-custom mr-3"></i>Custom analytics</li>
+                            <li class="flex items-center"><i class="fas fa-check text-custom mr-3"></i>Unlimited storage</li>
+                            <li class="flex items-center"><i class="fas fa-check text-custom mr-3"></i>24/7 phone support</li>
+                            <li class="flex items-center"><i class="fas fa-check text-custom mr-3"></i>Custom development</li>
+                        </ul>
+                        <button class="rounded-md w-full bg-white text-custom border-2 border-custom py-2 font-medium hover:bg-gray-50 transition-colors">Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12">Compare Plans</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-t border-gray-200">
+                                <th class="py-4 pl-4 pr-8 text-left font-medium text-gray-500">Features</th>
+                                <th class="py-4 px-4 text-center font-medium text-gray-500">Starter</th>
+                                <th class="py-4 px-4 text-center font-medium text-gray-500">Professional</th>
+                                <th class="py-4 px-4 text-center font-medium text-gray-500">Enterprise</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="feature-row">
+                                <td class="py-4 pl-4 pr-8 text-sm text-gray-900">Team members</td>
+                                <td class="py-4 px-4 text-center text-sm text-gray-500">Up to 5</td>
+                                <td class="py-4 px-4 text-center text-sm text-gray-500">Up to 20</td>
+                                <td class="py-4 px-4 text-center text-sm text-gray-500">Unlimited</td>
+                            </tr>
+                            <tr class="feature-row">
+                                <td class="py-4 pl-4 pr-8 text-sm text-gray-900">Storage</td>
+                                <td class="py-4 px-4 text-center text-sm text-gray-500">5GB</td>
+                                <td class="py-4 px-4 text-center text-sm text-gray-500">20GB</td>
+                                <td class="py-4 px-4 text-center text-sm text-gray-500">Unlimited</td>
+                            </tr>
+                            <tr class="feature-row">
+                                <td class="py-4 pl-4 pr-8 text-sm text-gray-900">Analytics</td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-check text-custom"></i></td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-check text-custom"></i></td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-check text-custom"></i></td>
+                            </tr>
+                            <tr class="feature-row">
+                                <td class="py-4 pl-4 pr-8 text-sm text-gray-900">API Access</td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-minus text-gray-300"></i></td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-check text-custom"></i></td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-check text-custom"></i></td>
+                            </tr>
+                            <tr class="feature-row">
+                                <td class="py-4 pl-4 pr-8 text-sm text-gray-900">Custom Development</td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-minus text-gray-300"></i></td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-minus text-gray-300"></i></td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-check text-custom"></i></td>
+                            </tr>
+                            <tr class="feature-row">
+                                <td class="py-4 pl-4 pr-8 text-sm text-gray-900">24/7 Support</td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-minus text-gray-300"></i></td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-minus text-gray-300"></i></td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-check text-custom"></i></td>
+                            </tr>
+                            <tr class="feature-row">
+                                <td class="py-4 pl-4 pr-8 text-sm text-gray-900">Custom Integrations</td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-minus text-gray-300"></i></td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-check text-custom"></i></td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-check text-custom"></i></td>
+                            </tr>
+                            <tr class="feature-row">
+                                <td class="py-4 pl-4 pr-8 text-sm text-gray-900">Advanced Security</td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-minus text-gray-300"></i></td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-check text-custom"></i></td>
+                                <td class="py-4 px-4 text-center"><i class="fas fa-check text-custom"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12">What our customers say</h2>
+                <div class="glide">
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides">
+                            <li class="glide__slide">
+                                <div class="bg-white p-8 rounded-lg shadow-sm">
+                                    <div class="flex items-center mb-6">
+                                        <img src="./../../assets/Vinkal Prajapati circle.png" class="w-16 h-16 rounded-full object-cover" alt="Sarah Johnson">
+                                        <div class="ml-4">
+                                            <h4 class="font-semibold">Sarah Johnson</h4>
+                                            <p class="text-gray-600">CEO at TechCorp</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600">"This platform has transformed how we manage our team projects. The analytics features are incredibly powerful, and the customer support is outstanding."</p>
+                                </div>
+                            </li>
+                            <li class="glide__slide">
+                                <div class="bg-white p-8 rounded-lg shadow-sm">
+                                    <div class="flex items-center mb-6">
+                                        <img src="./../../assets/Vinkal Prajapati circle.png" class="w-16 h-16 rounded-full object-cover" alt="Michael Chen">
+                                        <div class="ml-4">
+                                            <h4 class="font-semibold">Michael Chen</h4>
+                                            <p class="text-gray-600">CTO at InnovateLabs</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600">"The enterprise features have been a game-changer for our organization. We've seen a 40% increase in team productivity since implementing this solution."</p>
+                                </div>
+                            </li>
+                            <li class="glide__slide">
+                                <div class="bg-white p-8 rounded-lg shadow-sm">
+                                    <div class="flex items-center mb-6">
+                                        <img src="./../../assets/Vinkal Prajapati circle.png" class="w-16 h-16 rounded-full object-cover" alt="Emily Rodriguez">
+                                        <div class="ml-4">
+                                            <h4 class="font-semibold">Emily Rodriguez</h4>
+                                            <p class="text-gray-600">Founder at StartupX</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600">"As a startup founder, I appreciate the flexible pricing and scalability. The platform grew with us from 5 to 50 team members seamlessly."</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="glide__bullets mt-8" data-glide-el="controls[nav]">
+                        <button class="glide__bullet" data-glide-dir="=0"></button>
+                        <button class="glide__bullet" data-glide-dir="=1"></button>
+                        <button class="glide__bullet" data-glide-dir="=2"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-20 bg-white">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+                <div class="FAQbAck">
+                <div class="space-y-6">
+                    <div class="border-b border-gray-200 pb-6">
+                        <button class="flex justify-between items-center w-full text-left">
+                            <span class="text-lg font-medium text-gray-900">How does the billing work?</span>
+                            <i class="fas fa-chevron-down text-gray-500"></i>
+                        </button>
+                        <div class="mt-4 hidden">
+                            <p class="text-gray-600">We offer both monthly and annual billing options. Annual billing comes with a 20% discount. You can upgrade, downgrade, or cancel your plan at any time.</p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200 pb-6">
+                        <button class="flex justify-between items-center w-full text-left">
+                            <span class="text-lg font-medium text-gray-900">Can I change plans later?</span>
+                            <i class="fas fa-chevron-down text-gray-500"></i>
+                        </button>
+                        <div class="mt-4 hidden">
+                            <p class="text-gray-600">Yes, you can upgrade or downgrade your plan at any time. The changes will be reflected in your next billing cycle.</p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200 pb-6">
+                        <button class="flex justify-between items-center w-full text-left">
+                            <span class="text-lg font-medium text-gray-900">Is there a free trial?</span>
+                            <i class="fas fa-chevron-down text-gray-500"></i>
+                        </button>
+                        <div class="mt-4 hidden">
+                            <p class="text-gray-600">Yes, we offer a 14-day free trial on all plans. No credit card required to start your trial.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <section class="bg-custom py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold text-black mb-4">Ready to get started?</h2>
+                <p class="text-black mb-8">Join thousands of satisfied customers who trust our platform</p>
+                <button class="rounded-md bg-black text-white px-8 py-3 font-medium hover:bg-gray-50 text-red transition-colors">Start Your Free Trial</button>
+                <div class="mt-8 flex justify-center items-center space-x-6">
+                    <img src="./../../assets/SVG/info.svg" alt="Visa" class="h-8">
+                    <img src="./../../assets/SVG/wifi-alt.svg" alt="Mastercard" class="h-8">
+                    <img src="./../../assets/SVG/volleyball.svg" alt="American Express" class="h-8">
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js"></script>
+    <script>
+        new Glide('.glide', {
+            type: 'carousel',
+            startAt: 0,
+            perView: 3,
+            gap: 32,
+            breakpoints: {
+                1024: {
+                    perView: 2
+                },
+                640: {
+                    perView: 1
+                }
+            }
+        }).mount();
+
+        document.querySelectorAll('#faq button').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                content.classList.toggle('hidden');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+
+        const billingToggle = document.getElementById('billingToggle');
+        const prices = document.querySelectorAll('.price');
+
+        billingToggle.addEventListener('change', () => {
+            prices.forEach(price => {
+                const monthly = parseFloat(price.dataset.monthly);
+                const annual = parseFloat(price.dataset.annual);
+                price.textContent = billingToggle.checked ? `$${annual}` : `$${monthly}`;
+            });
+        });
+        // Load footer.html into the footer div
+    fetch('./../../components/footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading footer:', error));
+    </script>
+</body>
+</html>
