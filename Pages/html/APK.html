@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Showcase</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to bottom, #EEF2FF, #C7D2FE);
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero section */
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #7C3AED, #4F46E5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #4B5563;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* Features section */
+        .features {
+            background-color: #fff;
+            padding: 80px 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #7C3AED;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Screenshots section */
+        .screenshots {
+            background-color: #F3F4F6;
+            padding: 80px 0;
+        }
+
+        .screenshots h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .screenshot-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 20px;
+        }
+
+        .screenshot {
+            flex: 0 0 auto;
+            width: 250px;
+            height: 500px;
+            background-color: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Download section */
+        .download {
+            background: linear-gradient(to right, #7C3AED, #4F46E5);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .download h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .download p {
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Button styles */
+        .playstore-button, .authorized-reseller-api-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #fff;
+            border-radius: 9999px;
+            background-color: transparent;
+            padding: 10px 20px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .playstore-button:hover, .authorized-reseller-api-btn:hover {
+            background-color: #fff;
+            color: #7C3AED;
+        }
+
+        .authorized-reseller-api-btn {
+            border-radius: 10px;
+        }
+
+        .icon {
+            height: 24px;
+            width: 24px;
+            margin-right: 10px;
+        }
+
+        .texts {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1;
+        }
+
+        .text-1 {
+            font-size: 0.75rem;
+            margin-bottom: 5px;
+        }
+
+        .text-2 {
+            font-weight: 600;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Quantum Apps</h1>
+                <p>Discover the power of our app. Simplify your life, boost productivity, and enjoy seamless experiences.</p>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Key Features</h2>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Lightning Fast</h3>
+                        <p>Experience unparalleled speed and performance.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Secure & Private</h3>
+                        <p>Your data is protected with state-of-the-art encryption.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">📱</div>
+                        <h3>Cross-Platform</h3>
+                        <p>Use on any device - mobile, tablet, or desktop.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="screenshots">
+            <div class="container">
+                <h2>App Screenshots</h2>
+                <div class="screenshot-slider">
+                    <div class="screenshot">
+                        <img src="https://via.placeholder.com/250x500?text=Screenshot+1" alt="App Screenshot 1">
+                    </div>
+                    <div class="screenshot">
+                        <img src="https://via.placeholder.com/250x500?text=Screenshot+2" alt="App Screenshot 2">
+                    </div>
+                    <div class="screenshot">
+                        <img src="https://via.placeholder.com/250x500?text=Screenshot+3" alt="App Screenshot 3">
+                    </div>
+                    <div class="screenshot">
+                        <img src="https://via.placeholder.com/250x500?text=Screenshot+4" alt="App Screenshot 4">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="download">
+            <div class="container">
+                <h2>Download Our App</h2>
+                <p>Get started with our app today and experience the difference. Available on iOS, Android, and as a direct download.</p>
+                <div class="download-buttons">
+                    <a href="#" class="playstore-button">
+                        <span class="icon">
+                            <svg fill="currentcolor" viewBox="-52.01 0 560.035 560.035" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M380.844 297.529c.787 84.752 74.349 112.955 75.164 113.314-.622 1.988-11.754 40.191-38.756 79.652-23.343 34.117-47.568 68.107-85.731 68.811-37.499.691-49.557-22.236-92.429-22.236-42.859 0-56.256 21.533-91.753 22.928-36.837 1.395-64.889-36.891-88.424-70.883-48.093-69.53-84.846-196.475-35.496-282.165 24.516-42.554 68.328-69.501 115.882-70.192 36.173-.69 70.315 24.336 92.429 24.336 22.1 0 63.59-30.096 107.208-25.676 18.26.76 69.517 7.376 102.429 55.552-2.652 1.644-61.159 35.704-60.523 106.559M310.369 89.418C329.926 65.745 343.089 32.79 339.498 0 311.308 1.133 277.22 18.785 257 42.445c-18.121 20.952-33.991 54.487-29.709 86.628 31.421 2.431 63.52-15.967 83.078-39.655"></path>
+                            </svg>
+                        </span>
+                        <span class="texts">
+                            <span class="text-1">Download from</span>
+                            <span class="text-2">App Store</span>
+                        </span>
+                    </a>
+                    <a href="#" class="playstore-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="icon" viewBox="0 0 512 512">
+                            <path d="M99.617 8.057a50.191 50.191 0 00-38.815-6.713l230.932 230.933 74.846-74.846L99.617 8.057zM32.139 20.116c-6.441 8.563-10.148 19.077-10.148 30.199v411.358c0 11.123 3.708 21.636 10.148 30.199l235.877-235.877L32.139 20.116zM464.261 212.087l-67.266-37.637-81.544 81.544 81.548 81.548 67.273-37.64c16.117-9.03 25.738-25.442 25.738-43.908s-9.621-34.877-25.749-43.907zM291.733 279.711L60.815 510.629c3.786.891 7.639 1.371 11.492 1.371a50.275 50.275 0 0027.31-8.07l266.965-149.372-74.849-74.847z"></path>
+                        </svg>
+                        <span class="texts">
+                            <span class="text-1">GET IT ON</span>
+                            <span class="text-2">Google Play</span>
+                        </span>
+                    </a>
+                    <a href="#" class="authorized-reseller-api-btn">
+                        <svg height="42" width="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-width="2px" fill="none" stroke="#FFFFFF" d="M12 10v6m0 0-3-3m3 3 3-3m2 8H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2" stroke-linejoin="round" stroke-linecap="round"></path>
+                        </svg>
+                        <span class="texts">
+                            <span class="text-2">Direct Download</span>
+                            <span class="text-1">APK File</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // JavaScript for horizontal scrolling of screenshots
+        const screenshotSlider = document.querySelector('.screenshot-slider');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        screenshotSlider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - screenshotSlider.offsetLeft;
+            scrollLeft = screenshotSlider.scrollLeft;
+        });
+
+        screenshotSlider.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        screenshotSlider.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        screenshotSlider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - screenshotSlider.offsetLeft;
+            const walk = (x - startX) * 2;
+            screenshotSlider.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body>
+</html>
