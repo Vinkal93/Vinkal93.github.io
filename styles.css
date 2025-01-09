@@ -10,7 +10,23 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    padding: 0px;
+    
+}
+
+.navbar {
+    margin-top: -21px;
+    padding-top: 0;
+    border-top: 0;
+    padding: 10px 15px;
+}
+
+body {
+    margin: 0;
     padding: 0;
+}
+.nav-link{
+    margin-top: 20px;
 }
 
 /* Selection ka background color black aur text color white set karne ke liye */
@@ -171,11 +187,11 @@ body {
     }
 
 
-nav a {
+/* nav a {
     margin-left: 20px;
     color: var(--text);
     text-decoration: none;
-}
+} */
 
 .btn {
     padding: 10px 20px;
@@ -595,9 +611,9 @@ footer {
     .about-content {
         flex-direction: column;
     }
-    nav{
+    /* nav{
         display: none;
-    }
+    } */
     .btn btn-primary{
         display: none;
     }
