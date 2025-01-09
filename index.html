@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./Pages/css/floating-menu.css">
     <link rel="icon" href="./assets/Vinkal Prajapati circle.png" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
 
     
 
@@ -29,6 +30,10 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
+
+<!-- navbar  start-->
+
+
     <style>
         .dropdown:hover .dropdown-menu {
             display: block;
@@ -39,7 +44,8 @@
             top: 0;
             height: 100%;
             width: 300px;
-            background-color: white;
+            background-color: rgb(255, 255, 255);
+            
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             transition: right 0.3s ease-in-out;
             z-index: 50;
@@ -73,6 +79,38 @@
             height: 35px;
             border-radius: 50%;
         }
+        .download-button {
+    width: 100%;
+    background-color: #9333ea;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    display: flex
+;
+margin-top: 10%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.ml-4{
+    display: none;
+}
+.download-button{
+        display: none;
+    }
+    .copyright {
+            margin-top: 100px;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+@media (max-width: 768px) {
+    
+
+}
         
     </style>
 </head>
@@ -86,13 +124,24 @@
                         <img class="mypic" src="./assets/Vinkal Prajapati circle.png" alt=" vinkal prajapati">
                         <span class="ml-2 text-xl font-bold">Vinkal Prajapati</span>
                     </div>
+
+
+
+                   
+
+
+                    
                     <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                         <a href="#" class="border-purple-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                             Home
                         </a>
+
+                      
+
+
                         <div class="dropdown inline-flex items-center">
                             <button class="text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
-                                Templates
+                                More Links
                                 <svg class="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
@@ -104,10 +153,10 @@
                             </div>
                         </div>
                         <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                            Features
+                            Aout us
                         </a>
                         <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                            Learn
+                            Contact us
                         </a>
                         <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                             Pricing
@@ -119,13 +168,13 @@
                         <input type="text" placeholder="Search..." class="bg-gray-100 rounded-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500">
                     </div>
                     <button class="ml-4 bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                        Create a design
+                        Download Now
                     </button>
                     <div class="ml-3 relative">
                         <div>
                             <button type="button" class="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                 <span class="sr-only">Open user menu</span>
-                                <span class="h-8 w-8 rounded-full bg-gray-300"></span>
+                                <!-- <span class="h-8 w-8 rounded-full bg-gray-300"></span> -->
                             </button>
                         </div>
                     </div>
@@ -168,26 +217,32 @@
                                 <li><a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">Social Media</a></li>
                                 <li><a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">Presentations</a></li>
                                 <li><a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">Documents</a></li>
+                                <li><a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded">Pricing</a></li>
                             </ul>
                         </details>
                     </li>
                     <li class="menu-item mb-2">
-                        <a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-100 rounded">Features</a>
+                        <a href="./Pages/html/about.html" class="block py-2 px-4 text-gray-800 hover:bg-gray-100 rounded">About us</a>
                     </li>
                     <li class="menu-item mb-2">
-                        <a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-100 rounded">Learn</a>
+                        <a href="./Pages/html/contactus.html" class="block py-2 px-4 text-gray-800 hover:bg-gray-100 rounded">Contact us</a>
                     </li>
-                    <li class="menu-item mb-2">
+                    <!-- <li class="menu-item mb-2">
                         <a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-100 rounded">Pricing</a>
-                    </li>
+                    </li> -->
                 </ul>
             </nav>
             <div class="mt-4">
                 <input type="text" placeholder="Search..." class="w-full bg-gray-100 rounded-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500">
             </div>
-            <button class="mt-4 w-full bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                Create a design
+            <button class="download-button">
+             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+             Download Now
             </button>
+            <div class="copyright">
+                © 2024 Your Company. All rights reserved.
+            </div>
+           
         </div>
     </div>
 
@@ -234,6 +289,9 @@
             });
         });
     </script>
+
+<!-- 
+navbar end  -->
 
 
    
@@ -286,7 +344,7 @@
                     </div>
                     <div class="hero-image">
                         <!-- <div class="image-background"></div> -->
-                        <img src="./assets/Vinkal Prajapati.png" alt="Professional" width="500" height="500">
+                        <img src="./assets/Vinkal Prajapati circle.png" alt="Professional" width="500" height="500">
                     </div>
                 </div>
             </div>
