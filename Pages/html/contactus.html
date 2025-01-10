@@ -31,7 +31,7 @@
         }
 
         h1 {
-            font-size: 30px;
+            font-size: 3.75rem;
             color: #111827;
             margin-bottom: 1rem;
             line-height: 1.2;
@@ -182,9 +182,12 @@
             }
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
             h1 {
-                font-size: 3.75rem;
+                font-size: 30px;
+            }
+            .QI{
+                font-size: 30px;
             }
         }
     </style>
@@ -223,13 +226,16 @@
             </button>
         </div>
         <div class="team-avatars">
-            <div class="avatar"><img src="./assets/Vinkal Prajapati.png" alt="Support team member"></div>
-            <div class="avatar"><img src="./assets/Vinkal Prajapati.png" alt="Support team member"></div>
-            <div class="avatar"><img src="./assets/Vinkal Prajapati.png" alt="Support team member"></div>
+            <div class="avatar"><img src="./../../assets/Vinkal Prajapati circle.png" alt="Support team member"></div>
+            <div class="avatar"><img src="./../../assets/Vinkal Prajapati circle.png" alt="Support team member"></div>
+            <div class="avatar"><img src="./../../assets/Vinkal Prajapati circle.png" alt="Support team member"></div>
         </div>
     </div>
+   
     
     <script>
+       
+
         function createParticle() {
             const particle = document.createElement('div');
             particle.classList.add('particle');
