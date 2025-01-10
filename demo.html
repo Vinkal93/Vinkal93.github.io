@@ -17,8 +17,6 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
             background: linear-gradient(to bottom right, var(--bg-light), #f3f4f6);
             color: var(--text-light);
             transition: background-color 0.3s, color 0.3s;
@@ -33,16 +31,30 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
+        }
+
+        .main-content {
             display: flex;
             flex-direction: column;
-            align-items: center;
             gap: 3rem;
         }
 
+        @media (min-width: 1024px) {
+            .main-content {
+                flex-direction: row;
+            }
+        }
+
         .content {
-            text-align: center;
-            max-width: 600px;
-            margin-top: 100px;
+            flex: 1;
+            margin-top: 80px;
+        }
+
+        @media (min-width: 1024px) {
+            .content {
+                max-width: 50%;
+                margin-top: 15%;
+            }
         }
 
         h1 {
@@ -53,6 +65,7 @@
 
         p {
             color: #6b7280;
+            max-width: 32rem;
             margin-bottom: 2rem;
         }
 
@@ -64,7 +77,6 @@
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
-            justify-content: center;
             margin-bottom: 2rem;
         }
 
@@ -102,7 +114,6 @@
         .qr-code {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 1rem;
         }
 
@@ -119,9 +130,15 @@
             position: relative;
             width: 300px;
             height: 600px;
-            margin: 2rem 0;
+            margin: 2rem auto;
             transform: rotate(-5deg);
             transition: transform 0.3s;
+        }
+
+        @media (min-width: 1024px) {
+            .iphone-frame {
+                margin: 0;
+            }
         }
 
         .iphone-frame:hover {
@@ -145,6 +162,7 @@
         .iphone-outer {
             position: absolute;
             inset: 0;
+            margin-top: 50px;
             background-color: #000000;
             border-radius: 3rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -277,8 +295,6 @@
         }
 
         .additional-pages {
-            width: 100%;
-            max-width: 1200px;
             margin-top: 3rem;
         }
 
@@ -298,35 +314,37 @@
 <body>
     <canvas id="animationCanvas"></canvas>
     <div class="container">
-        <div class="content">
-            <h1>Download This App</h1>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-            <div class="buttons">
-                <button class="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                    Download on iOS
-                </button>
-                <button class="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-                    Download on Android
-                </button>
-            </div>
-            <div class="qr-code">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="7" y="7" width="3" height="3"></rect><rect x="14" y="7" width="3" height="3"></rect><rect x="7" y="14" width="3" height="3"></rect><rect x="14" y="14" width="3" height="3"></rect></svg>
-                <span>Scan to download</span>
-            </div>
-        </div>
-        <div class="iphone-frame">
-            <div class="iphone-outer">
-                <div class="iphone-inner">
-                    <div class="iphone-notch"></div>
-                    <div class="iphone-screen">
-                        <img src="https://via.placeholder.com/300x600" alt="App Screenshot" class="iphone-content">
-                    </div>
+        <div class="main-content">
+            <div class="content">
+                <h1>Download This App</h1>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                <div class="buttons">
+                    <button class="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Download on iOS
+                    </button>
+                    <button class="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                        Download on Android
+                    </button>
                 </div>
-                <div class="iphone-button"></div>
-                <div class="iphone-button"></div>
-                <div class="iphone-button"></div>
+                <div class="qr-code">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="7" y="7" width="3" height="3"></rect><rect x="14" y="7" width="3" height="3"></rect><rect x="7" y="14" width="3" height="3"></rect><rect x="14" y="14" width="3" height="3"></rect></svg>
+                    <span>Scan to download</span>
+                </div>
+            </div>
+            <div class="iphone-frame">
+                <div class="iphone-outer">
+                    <div class="iphone-inner">
+                        <div class="iphone-notch"></div>
+                        <div class="iphone-screen">
+                            <img src="./assets/app screenshot.jpg" alt="App Screenshot" class="iphone-content">
+                        </div>
+                    </div>
+                    <div class="iphone-button"></div>
+                    <div class="iphone-button"></div>
+                    <div class="iphone-button"></div>
+                </div>
             </div>
         </div>
         <div class="additional-pages">
@@ -340,13 +358,16 @@
     </button>
     <div id="footer"></div>
     <script>
-        // Load footer.html into the footer div
+
+
+// Load footer.html into the footer div
     fetch('./components/footer.html')
       .then(response => response.text())
       .then(data => {
         document.getElementById('footer').innerHTML = data;
       })
       .catch(error => console.error('Error loading footer:', error));
+
 
 
 
